@@ -3,89 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help The Earth - Charity</title>
+    <title>Help The Earth - Eco-Friendly Charity</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* ============================================
+           GLOBAL STYLES & RESET
+           ============================================ */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #545454;
+        }
+
+        /* ============================================
+           HEADER STYLES
+           ============================================ */
         header {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            background-color: #D7E4CF;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        section {
-            padding: 20px;
+
+        .logo-container {
             display: flex;
-            flex-direction: column;
-            margin: 20px;
-            border: 1px solid #ccc;
+            align-items: center;
+            gap: 15px;
         }
-        .zigzag {
+
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #303527;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav button {
+            background-color: #919191;
+            color: #303527;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #707070;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav button.active {
+            background-color: #303527;
+            color: #D7E4CF;
+        }
+
+        /* ============================================
+           FOOTER STYLES
+           ============================================ */
+        footer {
+            background-color: #000000;
+            color: #D9D9D9;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-section {
+            display: flex;
+            gap: 15px;
             align-items: center;
         }
-        .zigzag div {
-            width: 100%;
-            margin: 10px 0;
-            background: #f4f4f4;
-            padding: 20px;
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        footer {
-            background: #4CAF50;
+
+        .social-icon:hover {
+            background-color: #666;
+        }
+
+        .footer-contact {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        /* ============================================
+           SECTION STYLES
+           ============================================ */
+        section {
+            display: none;
+            padding: 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .dark-section {
+            background-color: #303527;
+            color: #D9D9D9;
+            padding: 60px 40px;
+        }
+
+        .light-section {
+            background-color: #D7E4CF;
+            color: #545454;
+            padding: 60px 40px;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            background: linear-gradient(135deg, #4CAF50, #303527);
             color: white;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+            padding: 100px 40px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .hero-image {
             width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* ============================================
+           FLEXBOX ZIG-ZAG LAYOUT
+           ============================================ */
+        .zigzag-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .zigzag-container.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .zigzag-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .zigzag-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .zigzag-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .dark-section .zigzag-image img {
+            border: 5px solid #A7A5A0;
+        }
+
+        /* ============================================
+           CONTENT STYLES
+           ============================================ */
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* ============================================
+           CENTERED CONTENT
+           ============================================ */
+        .centered-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .centered-content h2 {
+            margin-bottom: 30px;
+        }
+
+        /* ============================================
+           PODIUM STYLES
+           ============================================ */
+        .podium-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .podium-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .podium-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .podium-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .podium-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+        }
+
+        /* ============================================
+           CAROUSEL STYLES
+           ============================================ */
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .carousel-arrow {
+            background-color: #919191;
+            color: #303527;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background-color: #707070;
+            transform: scale(1.1);
+        }
+
+        .carousel-image {
+            max-width: 800px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* ============================================
+           FORM STYLES
+           ============================================ */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .pill-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 16px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            background-color: white;
+            color: #545454;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pill-input:focus {
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pill-input::placeholder {
+            color: #919191;
+        }
+
+        /* ============================================
+           GRID LAYOUT FOR STATISTICS
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .stat-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .stat-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .stat-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .stat-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+            border: 5px solid #A7A5A0;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav button {
+                padding: 10px 18px;
+                font-size: 12px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .zigzag-container,
+            .zigzag-container.reverse,
+            .podium-row,
+            .podium-row.reverse,
+            .stat-row,
+            .stat-row.reverse {
+                flex-direction: column;
+            }
+
+            .hero {
+                font-size: 32px;
+                padding: 60px 20px;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+
+            .dark-section,
+            .light-section {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            p,
+            li {
+                font-size: 14px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .carousel-image {
+                height: 300px;
+            }
+
+            .pill-input {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            nav button {
+                padding: 8px 14px;
+                font-size: 11px;
+            }
+
+            .logo-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .logo-text {
+                font-size: 14px;
+            }
+
+            .hero {
+                font-size: 24px;
+                padding: 40px 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            .dark-section,
+            .light-section {
+                padding: 30px 15px;
+            }
+
+            .footer-contact p {
+                font-size: 12px;
+            }
+
+            .centered-content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Help The Earth</div>
+        <div class="logo-container">
+            <div class="logo-circle">⚙️♻️</div>
+            <div class="logo-text">Help The Earth</div>
+        </div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#statistics">Statistics</a>
-            <a href="#competitions">Competitions</a>
-            <a href="#volunteering">Volunteering</a>
+            <button class="nav-btn active" data-section="home">Home</button>
+            <button class="nav-btn" data-section="statistics">Statistics</button>
+            <button class="nav-btn" data-section="competitions">Competitions</button>
+            <button class="nav-btn" data-section="volunteering">Volunteering</button>
         </nav>
     </header>
 
-    <section id="home" class="zigzag">
-        <div>Welcome to Help The Earth Charity!</div>
+    <section id="home" class="active">
+        <div class="hero">
+            <img src="https://via.placeholder.com/1200x400/4CAF50/FFFFFF?text=Mountains+and+Pine+Trees" alt="Mountains" class="hero-image">
+            <p style="margin-top: 20px; color: white;">Help The Earth</p>
+        </div>
+        <div class="dark-section">
+            <div class="zigzag-container">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/FF6B6B/FFFFFF?text=Man+in+Red" alt="Man">
+                </div>
+                <div class="zigzag-content">
+                    <h3>Who We Are</h3>
+                    <p>We are an Eco-friendliness charity based in Kettering. Established in 2013 by Greg Johnson, we believe the environment is the most important thing to protect.</p>
+                </div>
+            </div>
+            <div class="zigzag-container reverse">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/8B4513/FFFFFF?text=Polluted+River" alt="River">
+                </div>
+                <div class="zigzag-content">
+                    <h3>What We Do</h3>
+                    <p>We help reduce pollution and destruction of natural environments. We believe the environment should be protected and pollution is a serious issue that should be stopped.</p>
+                </div>
+            </div>
+        </div>
+        <div class="light-section">
+            <div class="zigzag-container">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/1E90FF/FFFFFF?text=Beach+Cleanup" alt="Beach">
+                </div>
+                <div class="zigzag-content">
+                    <h3>How You Can Help</h3>
+                    <p>There are many ways to help:</p>
+                    <ul>
+                        <li>Join events and community cleanup efforts</li>
+                        <li>Donate to support our mission</li>
+                        <li>Spread the word on social media</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="dark-section">
+            <h2 style="text-align: center; margin-bottom: 40px;">Our Recent Events</h2>
+            <div class="zigzag-container">
+                <div class="zigzag-content">
+                    <h3>Eco Friendly Friday</h3>
+                    <p>We recycled over 300 kg of plastic and saved 15kg of CO₂ emissions from processing waste.</p>
+                </div>
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/228B22/FFFFFF?text=Girls+Recycling" alt="Recycling">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="statistics" class="zigzag">
-        <div>Statistics on Environmental Impact</div>
+    <section id="statistics">
+        <div class="hero">
+            <img src="https://via.placeholder.com/1200x400/333333/FFFFFF?text=City+Skyline" alt="City" class="hero-image">
+            <p style="margin-top: 20px; color: white;">Statistics</p>
+        </div>
+        <div class="dark-section">
+            <div class="stats-grid">
+                <div class="stat-row">
+                    <div class="stat-image">
+                        <img src="https://via.placeholder.com/500x400/2C3E50/FFFFFF?text=Marine+Life" alt="Seal">
+                    </div>
+                    <div class="stat-content">
+                        <h3>Marine Life at Risk</h3>
+                        <p>78% of marine mammals are at risk from plastic pollution. 1 million die yearly.</p>
+                    </div>
+                </div>
+                <div class="stat-row reverse">
+                    <div class="stat-image">
+                        <img src="https://via.placeholder.com/500x400/C0C0C0/FFFFFF?text=Aluminum+Cans" alt="Cans">
+                    </div>
+                    <div class="stat-content">
+                        <h3>Recycling Saves Energy</h3>
+                        <p>One aluminum can saves enough energy for 3 hours of TV.</p>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-image">
+                        <img src="https://via.placeholder.com/500x400/FF8C00/FFFFFF?text=Carrots" alt="Food">
+                    </div>
+                    <div class="stat-content">
+                        <h3>Growing Food</h3>
+                        <p>Reduces distance food travels - 3 billion tonnes CO₂ annually globally.</p>
+                    </div>
+                </div>
+                <div class="stat-row reverse">
+                    <div class="stat-image">
+                        <img src="https://via.placeholder.com/500x400/FFB347/FFFFFF?text=Wind+Turbines" alt="Energy">
+                    </div>
+                    <div class="stat-content">
+                        <h3>Renewable Energy</h3>
+                        <p>By 2050, 80% of world energy could come from renewable sources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="light-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">Recent Policy Wins</h2>
+            <div class="carousel-container">
+                <button class="carousel-arrow">❮</button>
+                <img src="https://via.placeholder.com/800x400/D7E4CF/303527?text=Policy+Wins" alt="Policy" class="carousel-image">
+                <button class="carousel-arrow">❯</button>
+            </div>
+        </div>
     </section>
 
-    <section id="competitions" class="zigzag">
-        <div>Join Our Competitions</div>
+    <section id="competitions">
+        <div class="dark-section">
+            <div class="zigzag-container">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/FFD700/FFFFFF?text=Winner" alt="Winner">
+                </div>
+                <div class="zigzag-content">
+                    <h3>Last Month's Winner</h3>
+                    <p>Bug House Bonanza winner created a multi-floor bug condo for bees. She received a friend of the planet T-shirt and Help The Earth goodies.</p>
+                </div>
+            </div>
+        </div>
+        <div class="light-section">
+            <h2 style="text-align: center; margin-bottom: 50px;">The Podium</h2>
+            <div class="podium-row">
+                <div class="podium-content">
+                    <h3>🥇 1st - Emma</h3>
+                    <p>Designed amazing bug house using garage scraps.</p>
+                </div>
+                <div class="podium-image">
+                    <img src="https://via.placeholder.com/500x400/8B7355/FFFFFF?text=Bug+House" alt="1st">
+                </div>
+            </div>
+            <div class="podium-row reverse">
+                <div class="podium-content">
+                    <h3>🥈 2nd - Daniel</h3>
+                    <p>Built with daughter to help bugs find homes.</p>
+                </div>
+                <div class="podium-image">
+                    <img src="https://via.placeholder.com/500x400/90EE90/FFFFFF?text=Bug+House" alt="2nd">
+                </div>
+            </div>
+            <div class="podium-row">
+                <div class="podium-content">
+                    <h3>🥉 3rd - Sarah</h3>
+                    <p>Built with friends in school woodwork class.</p>
+                </div>
+                <div class="podium-image">
+                    <img src="https://via.placeholder.com/500x400/DAA520/FFFFFF?text=Bug+House" alt="3rd">
+                </div>
+            </div>
+        </div>
+        <div class="dark-section">
+            <div class="centered-content">
+                <h2>Our Next Competition</h2>
+                <h3 style="font-size: 28px; margin: 20px 0; color: #4CAF50;">Litterbug Lifestyle</h3>
+                <p>Build the best animal from beach litter</p>
+                <img src="https://via.placeholder.com/600x400/7F8C8D/FFFFFF?text=Sea+Turtle" alt="Turtle" style="border-radius: 15px; border: 5px solid #A7A5A0; max-width: 100%; margin: 30px auto; display: block;">
+                <p style="margin-top: 30px; font-weight: bold;">Sign up here to enter!</p>
+                <div class="form-container">
+                    <input type="email" class="pill-input" placeholder="Type your Email in here">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="volunteering" class="zigzag">
-        <div>Opportunities for Volunteering</div>
+    <section id="volunteering">
+        <div class="dark-section">
+            <h2 style="text-align: center; margin-bottom: 50px;">How Does Volunteering Help?</h2>
+            <div class="zigzag-container">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/00AA00/FFFFFF?text=Park+Cleanup" alt="Cleanup">
+                </div>
+                <div class="zigzag-content">
+                    <h3>Community Efforts</h3>
+                    <p>More volunteers mean more activity and positive impact on our communities.</p>
+                </div>
+            </div>
+            <div class="zigzag-container reverse">
+                <div class="zigzag-image">
+                    <img src="https://via.placeholder.com/500x400/228B22/FFFFFF?text=Forest+Path" alt="Forest">
+                </div>
+                <div class="zigzag-content">
+                    <h3>Environment Protection</h3>
+                    <p>More volunteers let us run more events and remove more litter from our environment.</p>
+                </div>
+            </div>
+        </div>
+        <div class="light-section">
+            <div class="centered-content">
+                <h2>How to Volunteer</h2>
+                <p style="font-size: 18px; margin: 20px 0;">Sign up for our newsletter to find events and opportunities</p>
+                <div class="form-container">
+                    <input type="email" class="pill-input" placeholder="Type your Email in here">
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
-        Contact us: info@helptheearth.org
+        <div class="footer-section">
+            <div class="social-icon">📱</div>
+            <div class="social-icon">𝕏</div>
+        </div>
+        <div class="footer-contact">
+            <p><strong>Email:</strong> HelpTheEarth@helptheearth.com</p>
+            <p><strong>Telephone:</strong> +44 1234 567890</p>
+        </div>
+        <div class="footer-section">
+            <div class="social-icon">📷</div>
+            <div class="social-icon">f</div>
+        </div>
     </footer>
 
     <script>
-        // JavaScript can be added here for interactive features
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('section');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetSection = button.getAttribute('data-section');
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                button.classList.add('active');
+                document.getElementById(targetSection).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        const carouselArrows = document.querySelectorAll('.carousel-arrow');
+        carouselArrows.forEach(arrow => {
+            arrow.addEventListener('click', () => console.log('Carousel navigation clicked'));
+        });
+
+        const pillInputs = document.querySelectorAll('.pill-input');
+        pillInputs.forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const email = input.value;
+                    if (email) {
+                        alert(`Thank you for signing up with: ${email}`);
+                        input.value = '';
+                    }
+                }
+            });
+        });
+
+        console.log('Help The Earth website loaded!');
     </script>
 </body>
 </html>
