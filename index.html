@@ -185,6 +185,17 @@
             border-radius: 15px;
         }
 
+        .light-section::before {
+            position: absolute;
+            top: -20px; /* Extend past top border */
+            left: -20px; /* Extend past left border */
+            right: -20px;
+            bottom: -40px;
+            background: #D7E4CF;
+            z-index: -1; /* Place behind content */
+            content: "";
+        }
+
         /* ============================================
            HERO SECTION
            ============================================ */
@@ -621,8 +632,7 @@
 
     <section id="statistics">
         <div class="hero">
-            <img src="https://via.placeholder.com/1200x400/333333/FFFFFF?text=City+Skyline" alt="City" class="hero-image">
-            <p style="margin-top: 20px; color: white;">Statistics</p>
+            <img src="U15A2gif-Animation.gif" alt="City" class="hero-image">
         </div>
         <div class="dark-section">
             <div class="stats-grid">
