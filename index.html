@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help The Earth - Eco-Friendly Charity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* ============================================
            GLOBAL STYLES & RESET
@@ -15,7 +18,7 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'League Spartan', sans-serif;
             line-height: 1.6;
             color: #545454;
         }
@@ -180,7 +183,7 @@
 
         .hero-image {
             width: 100%;
-            height: 400px;
+            height: 650px;
             object-fit: cover;
             border-radius: 15px;
         }
@@ -224,19 +227,19 @@
            CONTENT STYLES
            ============================================ */
         h2 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: bold;
             margin-bottom: 20px;
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 20px;
             line-height: 1.8;
             margin-bottom: 15px;
         }
@@ -247,7 +250,7 @@
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-size: 16px;
         }
 
@@ -529,15 +532,17 @@
 </head>
 <body>
     <header>
+        <nav>
+            <button class="nav-btn active" data-section="home" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Home</button>
+            <button class="nav-btn" data-section="statistics" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Statistics</button>
+        </nav>
         <div class="logo-container">
             <div class="logo-circle">⚙️♻️</div>
             <div class="logo-text">Help The Earth</div>
         </div>
         <nav>
-            <button class="nav-btn active" data-section="home">Home</button>
-            <button class="nav-btn" data-section="statistics">Statistics</button>
-            <button class="nav-btn" data-section="competitions">Competitions</button>
-            <button class="nav-btn" data-section="volunteering">Volunteering</button>
+            <button class="nav-btn" data-section="competitions" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Competitions</button>
+            <button class="nav-btn" data-section="volunteering" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Volunteering</button>
         </nav>
     </header>
 
@@ -549,35 +554,35 @@
         <div class="dark-section">
             <div class="zigzag-container">
                 <div class="zigzag-image">
-                    <img src="https://via.placeholder.com/500x400/FF6B6B/FFFFFF?text=Man+in+Red" alt="Man">
+                    <img src="U15A2img-Man.webp" alt="Man">
                 </div>
                 <div class="zigzag-content">
                     <h3>Who We Are</h3>
-                    <p>We are an Eco-friendliness charity based in Kettering. Established in 2013 by Greg Johnson, we believe the environment is the most important thing to protect.</p>
+                    <p>We are an Eco friendliness charity based in Kettering, UK. We were established in 2012 by Greg Johnson who believes that the environment is the most important thing to protect. We firmly agree with him and try every day to Help The Earth that we live on. </p>
                 </div>
             </div>
             <div class="zigzag-container reverse">
                 <div class="zigzag-image">
-                    <img src="https://via.placeholder.com/500x400/8B4513/FFFFFF?text=Polluted+River" alt="River">
+                    <img src="U15A2img-Pollution1.webp" alt="River">
                 </div>
                 <div class="zigzag-content">
                     <h3>What We Do</h3>
-                    <p>We help reduce pollution and destruction of natural environments. We believe the environment should be protected and pollution is a serious issue that should be stopped.</p>
+                    <p>Our current aim is to help reduce the pollution and destruction of the natural environments that are around us all the time. This is important to us because we believe that the environment should be protected at all times and that pollution is a serious issue that should be stopped.</p>
                 </div>
             </div>
         </div>
         <div class="light-section">
             <div class="zigzag-container">
                 <div class="zigzag-image">
-                    <img src="https://via.placeholder.com/500x400/1E90FF/FFFFFF?text=Beach+Cleanup" alt="Beach">
+                    <img src="U15A2img-PollutionCleanup1.webp" alt="Beach">
                 </div>
                 <div class="zigzag-content">
                     <h3>How You Can Help</h3>
-                    <p>There are many ways to help:</p>
+                    <p>There are many different ways that you can help the environment:</p>
                     <ul>
-                        <li>Join events and community cleanup efforts</li>
-                        <li>Donate to support our mission</li>
-                        <li>Spread the word on social media</li>
+                        <li>You can join in with events and help with the community efforts that we set up to help clean up the environment.</li>
+                        <li>You can donate to allow us to continue working towards our goal for a cleaner planet.</li>
+                        <li>You can spread the word on social media so that all your friends know.</li>
                     </ul>
                 </div>
             </div>
@@ -587,7 +592,7 @@
             <div class="zigzag-container">
                 <div class="zigzag-content">
                     <h3>Eco Friendly Friday</h3>
-                    <p>We recycled over 300 kg of plastic and saved 15kg of CO₂ emissions from processing waste.</p>
+                    <p>We set up a day where our volunteers spent the day trying to recycle as much of the non reusable waste that they create. Overall we recycled over 300 kg of plastic and saved 15kg of CO2 emissions from processing the waste .</p>
                 </div>
                 <div class="zigzag-image">
                     <img src="https://via.placeholder.com/500x400/228B22/FFFFFF?text=Girls+Recycling" alt="Recycling">
