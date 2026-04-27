@@ -41,6 +41,7 @@
         .logo-container {
             display: flex;
             align-items: center;
+            height: 60px;
             gap: 15px;
         }
 
@@ -81,7 +82,7 @@
         }
 
         nav button:hover {
-            background-color: #707070;
+            background-color: #9d9d9d;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -103,12 +104,26 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            border-radius: 15px 15px 0 0;
         }
 
         .footer-section {
             display: flex;
             gap: 15px;
             align-items: center;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff0000; /* Desired gap color */
+            border-radius: 0px 0px 0 0;
+            z-index: 1; /* Sits behind the footer */
+            transform: scale(1.05); /* Expands slightly to fill the gap */
         }
 
         .social-icon {
@@ -161,12 +176,16 @@
             background-color: #303527;
             color: #D9D9D9;
             padding: 60px 40px;
+            background-clip: border-box;
+            background-origin: border-box;
         }
 
         .light-section {
             background-color: #D7E4CF;
             color: #545454;
             padding: 60px 40px;
+            background-clip: border-box;
+            border-radius: 15px;
         }
 
         /* ============================================
@@ -182,9 +201,11 @@
         }
 
         .hero-image {
-            width: 100%;
-            height: 650px;
+            width: fit-content;
+            height: 475px;
             object-fit: cover;
+            align-items: center;
+            margin: 0 auto;
             border-radius: 15px;
         }
 
@@ -227,19 +248,20 @@
            CONTENT STYLES
            ============================================ */
         h2 {
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 50px;
+            font-weight: 750;
             margin-bottom: 20px;
         }
 
         h3 {
-            font-size: 25px;
-            font-weight: bold;
+            font-size: 40px;
+            font-weight: 650;
             margin-bottom: 15px;
         }
 
         p {
-            font-size: 20px;
+            font-size: 25px;
+            font-weight: 600;
             line-height: 1.8;
             margin-bottom: 15px;
         }
@@ -251,7 +273,8 @@
 
         li {
             margin-bottom: 20px;
-            font-size: 16px;
+            font-size: 25px;
+            font-weight: 600;
         }
 
         /* ============================================
@@ -537,7 +560,7 @@
             <button class="nav-btn" data-section="statistics" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Statistics</button>
         </nav>
         <div class="logo-container">
-            <img src="U15A2img-Logo Design.webp" alt="Logo" class="logo-image">
+            <img src="U15A2img-Logo_Design.webp" alt="Logo" class="logo-image" style="height: 100px;">
         </div>
         <nav>
             <button class="nav-btn" data-section="competitions" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Competitions</button>
@@ -548,7 +571,6 @@
     <section id="home" class="active">
         <div class="hero">
             <img src="U15A2img-Web Banner.webp" alt="Mountains" class="hero-image">
-            <p style="margin-top: 20px; color: white;">Help The Earth</p>
         </div>
         <div class="dark-section">
             <div class="zigzag-container">
