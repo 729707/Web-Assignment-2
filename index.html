@@ -36,6 +36,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            border-radius: 0 0 15px 15px;
         }
 
         .logo-container {
@@ -202,13 +203,13 @@
            HERO SECTION
            ============================================ */
         .hero {
-            background: linear-gradient(135deg, #4CAF50, #303527);
+            background: linear-gradient(to bottom,#D7E4CF, #303527);
             color: white;
             text-align: center;
             padding: 100px 40px;
             font-size: 48px;
             font-weight: bold;
-        }
+            }
 
         .hero-image {
             width: fit-content;
@@ -218,19 +219,6 @@
             margin: 0 auto;            
             border-radius: 15px;
             position: relative;
-        }
-
-        .hero-image::before {
-            position: relative;
-            top: -20px; /* Extend past top border */
-            left: -20px; /* Extend past left border */
-            right: -20px;
-            bottom: -20px;
-            #Grad   
-                background: linear-gradient(to bottom, #D7E4CF, #303527);
-                background-size: cover;
-            z-index: -1; /* Place behind content */
-            content: "";
         }
 
         /* ============================================
