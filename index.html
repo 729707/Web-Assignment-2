@@ -170,12 +170,20 @@
            HERO SECTION
            ============================================ */
         .hero {
-            background: linear-gradient(135deg, #4CAF50, #303527);
-            color: white;
+            background-color: #D7E4CF;
+            color: #303527;
             text-align: center;
             padding: 100px 40px;
             font-size: 48px;
             font-weight: bold;
+        }
+
+        .hero-image-frame {
+            background: linear-gradient(180deg, #D7E4CF 0%, #303527 100%);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero-image {
@@ -183,6 +191,7 @@
             height: 400px;
             object-fit: cover;
             border-radius: 15px;
+            display: block;
         }
 
         /* ============================================
@@ -543,8 +552,10 @@
 
     <section id="home" class="active">
         <div class="hero">
-            <img src="https://via.placeholder.com/1200x400/4CAF50/FFFFFF?text=Mountains+and+Pine+Trees" alt="Mountains" class="hero-image">
-            <p style="margin-top: 20px; color: white;">Help The Earth</p>
+            <div class="hero-image-frame">
+                <img src="https://via.placeholder.com/1200x400/4CAF50/FFFFFF?text=Mountains+and+Pine+Trees" alt="Mountains" class="hero-image">
+            </div>
+            <p style="margin-top: 20px; color: #303527;">Help The Earth</p>
         </div>
         <div class="dark-section">
             <div class="zigzag-container">
@@ -598,8 +609,10 @@
 
     <section id="statistics">
         <div class="hero">
-            <img src="https://via.placeholder.com/1200x400/333333/FFFFFF?text=City+Skyline" alt="City" class="hero-image">
-            <p style="margin-top: 20px; color: white;">Statistics</p>
+            <div class="hero-image-frame">
+                <img src="https://via.placeholder.com/1200x400/333333/FFFFFF?text=City+Skyline" alt="City" class="hero-image">
+            </div>
+            <p style="margin-top: 20px; color: #303527;">Statistics</p>
         </div>
         <div class="dark-section">
             <div class="stats-grid">
@@ -698,7 +711,7 @@
                 <h2>Our Next Competition</h2>
                 <h3 style="font-size: 28px; margin: 20px 0; color: #4CAF50;">Litterbug Lifestyle</h3>
                 <p>Build the best animal from beach litter</p>
-                <img src="https://via.placeholder.com/600x400/7F8C8D/FFFFFF?text=Sea+Turtle" alt="Turtle" style="border-radius: 15px; border: 5px solid #A7A5A0; max-width: 100%; margin: 30px auto; display: block;">
+                <img src="https://via.placeholder.com/600x400/7F8C8D/FFFFFF?text=Sea+Turtle" alt="Turtle" style="border-radius: 15px; border: 5px solid #A7A5A0; max-width: 100%; margin: 30px auto; dis[...]}
                 <p style="margin-top: 30px; font-weight: bold;">Sign up here to enter!</p>
                 <div class="form-container">
                     <input type="email" class="pill-input" placeholder="Type your Email in here">
