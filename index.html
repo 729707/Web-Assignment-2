@@ -37,6 +37,7 @@
             top: 0;
             z-index: 100;
             border-radius: 0 0 15px 15px;
+            margin-bottom: -20px;
         }
 
         .logo-container {
@@ -165,7 +166,7 @@
             color: #D9D9D9;
             padding: 60px 40px;
             position: relative;
-            overflow: visible;
+            overflow-x: clip;
         }
 
         .dark-section::before {
@@ -185,7 +186,7 @@
             padding: 60px 40px;
             border-radius: 15px;
             position: relative;
-            overflow: visible;
+            overflow-x: clip;
         }
 
         .light-section::before {
@@ -213,11 +214,11 @@
 
         .hero-image {
             width: 100%;
-            max-height: 488px;
+            max-height: fit-content;
             object-fit: cover;
             align-items: center;
             margin: 0 auto;            
-            border-radius: 15px;
+            border-radius: 0 0 15px 15px;
             position: relative;
         }
 
@@ -629,7 +630,7 @@
                     <p>We set up a day where our volunteers spent the day trying to recycle as much of the non reusable waste that they create. Overall we recycled over 300 kg of plastic and saved 15kg of CO2 emissions from processing the waste .</p>
                 </div>
                 <div class="zigzag-image">
-                    <img style="border: 5px solid #A7A5A0; width: 100%; height: auto; border-radius: 15px; display: block;" src="https://via.placeholder.com/500x400/228B22/FFFFFF?text=Girls+Recycling" alt="Recycling">
+                    <img style="border: 5px solid #A7A5A0; width: 100%; height: auto; border-radius: 15px; display: block;" src="U15A2-Recycling 1.webp" alt="Recycling">
                 </div>
             </div>
         </div>
@@ -643,11 +644,10 @@
             <div class="stats-grid">
                 <div class="stat-row">
                     <div class="stat-image">
-                        <img style="border: 5px solid #A7A5A0; width: 100%; height: auto; border-radius: 15px; display: block;" src="https://via.placeholder.com/500x400/2C3E50/FFFFFF?text=Marine+Life" alt="Seal">
+                        <img style="border: 5px solid #A7A5A0; width: 100%; height: auto; border-radius: 15px; display: block;" src="U15A2-Ocean Pollution 1.webp" alt="Seal">
                     </div>
                     <div class="stat-content">
-                        <h3>Marine Life at Risk</h3>
-                        <p>78% of marine mammals are at risk from plastic pollution. 1 million die yearly.</p>
+                        <p>Around 78% of marine mammals are at risk of accidental death from plastic pollution. Every year 1 million mammals die from plastic related deaths.</p>
                     </div>
                 </div>
                 <div class="stat-row reverse">
@@ -655,8 +655,7 @@
                         <img src="https://via.placeholder.com/500x400/C0C0C0/FFFFFF?text=Aluminum+Cans" alt="Cans">
                     </div>
                     <div class="stat-content">
-                        <h3>Recycling Saves Energy</h3>
-                        <p>One aluminum can saves enough energy for 3 hours of TV.</p>
+                        <p>Recycling a single 330 ml aluminum drink can saves enough energy to power a television for over three hours.</p>
                     </div>
                 </div>
                 <div class="stat-row">
@@ -665,7 +664,7 @@
                     </div>
                     <div class="stat-content">
                         <h3>Growing Food</h3>
-                        <p>Reduces distance food travels - 3 billion tonnes CO₂ annually globally.</p>
+                        <p>Growing your own food reduces the distance food travels which globally account for three billion tonnes of CO2 equivalent emissions annually.</p>
                     </div>
                 </div>
                 <div class="stat-row reverse">
@@ -673,8 +672,7 @@
                         <img style="border: 5px solid #A7A5A0; width: 100%; height: auto; border-radius: 15px; display: block;" src="https://via.placeholder.com/500x400/FFB347/FFFFFF?text=Wind+Turbines" alt="Energy">
                     </div>
                     <div class="stat-content">
-                        <h3>Renewable Energy</h3>
-                        <p>By 2050, 80% of world energy could come from renewable sources.</p>
+                        <p>By 2050, up to 80% of all of the energy used in the world could come from renewable sources.</p>
                     </div>
                 </div>
             </div>
