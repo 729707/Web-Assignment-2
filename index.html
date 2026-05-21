@@ -808,13 +808,14 @@
 
     <script>
         const MOBILE_BREAKPOINT = 768;
+        const mobileMediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('section');
         const pageHeader = document.querySelector('header');
         const logoMenuToggle = document.getElementById('nav-logo-toggle');
 
         function isMobileView() {
-            return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+            return mobileMediaQuery.matches;
         }
 
         function setMobileMenuState(isOpen) {
@@ -847,12 +848,7 @@
         });
 
         setMobileMenuState(false);
-        let wasMobileView = isMobileView();
-
-        window.addEventListener('resize', () => {
-            const isCurrentlyMobile = isMobileView();
-            if (isCurrentlyMobile === wasMobileView) return;
-            wasMobileView = isCurrentlyMobile;
+        mobileMediaQuery.addEventListener('change', () => {
             setMobileMenuState(false);
         });
 
