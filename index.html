@@ -820,7 +820,7 @@
         function setMobileMenuState(isOpen) {
             if (!isMobileView()) {
                 pageHeader.classList.remove('menu-open');
-                logoMenuToggle.setAttribute('aria-expanded', 'true');
+                logoMenuToggle.removeAttribute('aria-expanded');
                 return;
             }
             pageHeader.classList.toggle('menu-open', isOpen);
@@ -846,8 +846,8 @@
             setMobileMenuState(!pageHeader.classList.contains('menu-open'));
         });
 
-        let wasMobileView = isMobileView();
         setMobileMenuState(false);
+        let wasMobileView = isMobileView();
 
         window.addEventListener('resize', () => {
             const isCurrentlyMobile = isMobileView();
