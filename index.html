@@ -578,7 +578,7 @@
             <button class="nav-btn" data-section="statistics" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Statistics</button>
         </nav>
         <div class="logo-container">
-            <button type="button" class="logo-toggle-btn" id="nav-logo-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button type="button" class="logo-toggle-btn" id="nav-logo-toggle" aria-label="Toggle navigation menu">
                 <img src="U15A2img-Logo_Design.webp" alt="Logo" class="logo-image">
             </button>
         </div>
@@ -820,7 +820,7 @@
         function setMobileMenuState(isOpen) {
             if (!isMobileView()) {
                 pageHeader.classList.remove('menu-open');
-                logoMenuToggle.setAttribute('aria-expanded', 'false');
+                logoMenuToggle.setAttribute('aria-expanded', 'true');
                 return;
             }
             pageHeader.classList.toggle('menu-open', isOpen);
@@ -846,18 +846,14 @@
             setMobileMenuState(!pageHeader.classList.contains('menu-open'));
         });
 
-        logoMenuToggle.addEventListener('keydown', (e) => {
-            if (!isMobileView()) return;
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setMobileMenuState(!pageHeader.classList.contains('menu-open'));
-            }
-        });
+        let wasMobileView = isMobileView();
+        setMobileMenuState(false);
 
         window.addEventListener('resize', () => {
-            if (!isMobileView()) {
-                setMobileMenuState(false);
-            }
+            const isCurrentlyMobile = isMobileView();
+            if (isCurrentlyMobile === wasMobileView) return;
+            wasMobileView = isCurrentlyMobile;
+            setMobileMenuState(false);
         });
 
         const carouselArrows = document.querySelectorAll('.carousel-arrow');
