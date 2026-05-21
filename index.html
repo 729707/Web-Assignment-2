@@ -42,6 +42,18 @@
             gap: 15px;
         }
 
+        .logo-image {
+            height: 100px;
+        }
+
+        .logo-toggle-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
         .logo-circle {
             width: 60px;
             height: 60px;
@@ -426,6 +438,25 @@
                 justify-content: center;
             }
 
+            header nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header.menu-open nav {
+                display: flex;
+            }
+
+            .logo-image {
+                cursor: pointer;
+            }
+
+            .logo-toggle-btn {
+                cursor: pointer;
+            }
+
             nav button {
                 padding: 10px 18px;
                 font-size: 12px;
@@ -547,7 +578,9 @@
             <button class="nav-btn" data-section="statistics" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Statistics</button>
         </nav>
         <div class="logo-container">
-            <img src="U15A2img-Logo_Design.webp" alt="Logo" class="logo-image" style="height: 100px;">
+            <button type="button" class="logo-toggle-btn" id="nav-logo-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <img src="U15A2img-Logo_Design.webp" alt="Logo" class="logo-image">
+            </button>
         </div>
         <nav>
             <button class="nav-btn" data-section="competitions" style="font-family: 'League Spartan', sans-serif;width: 240px; height: 60px;font-size: 30px; margin: 15px;">Competitions</button>
@@ -774,8 +807,25 @@
     </footer>
 
     <script>
+        const MOBILE_BREAKPOINT = 768;
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('section');
+        const pageHeader = document.querySelector('header');
+        const logoMenuToggle = document.getElementById('nav-logo-toggle');
+
+        function isMobileView() {
+            return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+        }
+
+        function setMobileMenuState(isOpen) {
+            if (!isMobileView()) {
+                pageHeader.classList.remove('menu-open');
+                logoMenuToggle.setAttribute('aria-expanded', 'false');
+                return;
+            }
+            pageHeader.classList.toggle('menu-open', isOpen);
+            logoMenuToggle.setAttribute('aria-expanded', String(isOpen));
+        }
 
         navButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -784,8 +834,30 @@
                 sections.forEach(section => section.classList.remove('active'));
                 button.classList.add('active');
                 document.getElementById(targetSection).classList.add('active');
+                if (isMobileView()) {
+                    setMobileMenuState(false);
+                }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
+
+        logoMenuToggle.addEventListener('click', () => {
+            if (!isMobileView()) return;
+            setMobileMenuState(!pageHeader.classList.contains('menu-open'));
+        });
+
+        logoMenuToggle.addEventListener('keydown', (e) => {
+            if (!isMobileView()) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setMobileMenuState(!pageHeader.classList.contains('menu-open'));
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (!isMobileView()) {
+                setMobileMenuState(false);
+            }
         });
 
         const carouselArrows = document.querySelectorAll('.carousel-arrow');
